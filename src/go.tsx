@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { ActionPanel, Action, List, Icon, showToast, Toast } from "@raycast/api";
-import fetch from "node-fetch"; // <-- Important: import node-fetch here
 
 interface GoLink {
   Short: string;
@@ -19,7 +18,7 @@ export default function GoLinksCommand() {
   useEffect(() => {
     async function fetchGoLinks() {
       try {
-        const response = await fetch("http://go/.export"); // using the node-fetch import
+        const response = await fetch("http://go/.export");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
